@@ -92,13 +92,7 @@ class ContributionScores extends IncludableSpecialPage {
 
 		$sortable = in_array( 'nosort', $opts ) ? '' : ' sortable';
 
-		$output = "<table class=\"wikitable contributionscores plainlinks{$sortable}\" >\n" .
-			"<tr class='header'>\n" .
-			Html::element( 'th', [], $this->msg( 'contributionscores-rank' )->text() ) .
-			Html::element( 'th', [], $this->msg( 'contributionscores-score' )->text() ) .
-			Html::element( 'th', [], $this->msg( 'contributionscores-pages' )->text() ) .
-			Html::element( 'th', [], $this->msg( 'contributionscores-changes' )->text() ) .
-			Html::element( 'th', [], $this->msg( 'contributionscores-username' )->text() );
+		$output = "<table class=\"wikitable contributionscores plainlinks{$sortable}\" >\n";
 
 		$altrow = '';
 		$user_rank = 1;
@@ -121,21 +115,11 @@ class ContributionScores extends IncludableSpecialPage {
 
 			$output .= Html::closeElement( 'tr' );
 			$output .= "<tr class='{$altrow}'>\n" .
-				"<td class='content' style='padding-right:10px;text-align:right;'>" .
+				"<td class='content'><span class='rank'>" .
 				$lang->formatNum( round( $user_rank, 0 ) ) .
-				"\n</td><td class='content' style='padding-right:10px;text-align:right;'>" .
-				$lang->formatNum( round( $row->wiki_rank, 0 ) ) .
-				"\n</td><td class='content' style='padding-right:10px;text-align:right;'>" .
-				$lang->formatNum( $row->page_count ) .
-				"\n</td><td class='content' style='padding-right:10px;text-align:right;'>" .
-				$lang->formatNum( $row->rev_count ) .
-				"\n</td><td class='content'>" .
-				$userLink;
-
-			# Option to not display user tools
-			if ( !in_array( 'notools', $opts ) ) {
-				$output .= Linker::userToolLinks( $row->user_id, $row->user_name );
-			}
+				"</span></td><td class='content'>" .
+                $userLink .
+                "共编辑词条". $lang->formatNum( $row->page_count ) ."条";
 
 			$output .= Html::closeElement( 'td' ) . "\n";
 
@@ -152,23 +136,7 @@ class ContributionScores extends IncludableSpecialPage {
 
 		$dbr->freeResult( $res );
 
-		if ( !empty( $title ) ) {
-			$output = Html::rawElement( 'table',
-				[
-					'style' => 'border-spacing: 0; padding: 0',
-					'class' => 'contributionscores-wrapper',
-					'lang' => htmlspecialchars( $lang->getCode() ),
-					'dir' => $lang->getDir()
-				],
-				"\n" .
-				"<tr>\n" .
-				"<td style='padding: 0px;'>{$title}</td>\n" .
-				"</tr>\n" .
-				"<tr>\n" .
-				"<td style='padding: 0px;'>{$output}</td>\n" .
-				"</tr>\n"
-			);
-		}
+		$output = Html::rawElement( $output );
 
 		return $output;
 	}
