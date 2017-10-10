@@ -74,7 +74,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
             else {
                 $output .= "<td style='text-align: center;'><span style='font-size: 16px; padding: 2px; color: #008CBA; line-height: 16px; width: 21px; height: 21px; display: inline-block;'>" . $user_rank . "</span></td>";
             }
-            $output .= "<td style='font-size: 14px;'>" . $userLink . "共编辑词条<b style='color: #BA0000; margin-left: 5px; margin-right: 5px;'>". $row->page_count ."</b>条</td>";
+            $output .= "<td style='font-size: 16px;'>" . $userLink . "共编辑词条<b style='color: #BA0000; margin-left: 5px; margin-right: 5px;'>". $row->page_count ."</b>条</td>";
             $output .= Html::closeElement('tr');
 
             $user_rank++;
