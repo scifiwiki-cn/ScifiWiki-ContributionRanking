@@ -8,10 +8,10 @@
 
 $specialPageAliases = array();
 
-$specialPageAliases['zn-hans'] = array(
+$specialPageAliases['zh-hans'] = array(
     "ScifiWikiContributionRanking" => array("贡献排名")
 );
 
-$specialPageAliases['zn-hant'] = array(
+$specialPageAliases['zh-hant'] = array(
     "ScifiWikiContributionRanking" => array("貢獻排名")
 );

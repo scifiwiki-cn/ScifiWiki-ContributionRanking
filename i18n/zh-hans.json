@@ -1,25 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dimension",
-			"Hydra",
-			"Liuxinyu970226",
-			"PhiLiP",
-			"Shinjiman",
-			"Shirayuki"
+			"scifiwiki-cn"
 		]
 	},
-	"contributionscores": "贡献分数",
-	"contributionscores-desc": "根据在wiki数据库中给出最高的[[Special:ContributionScores|用户贡献容量]]",
-	"contributionscores-info": "得分主要考量具有独特性的编辑，同时考虑编辑量。",
-	"contributionscores-top": "（最高$1名）",
-	"contributionscores-days": "最近$1天",
-	"contributionscores-allrevisions": "所有的时间",
-	"contributionscores-score": "分数",
-	"contributionscores-rank": "排名",
-	"contributionscores-pages": "页面",
-	"contributionscores-changes": "更改",
-	"contributionscores-username": "用户名",
-	"contributionscores-invalidusername": "无效的用户名",
-	"contributionscores-invalidmetric": "无效的公制"
+	"scifiwikicontributionranking": "贡献排名",
+	"scifiwikicontributionranking-rank": "排名",
+	"scifiwikicontributionranking-pages": "贡献页面",
+	"scifiwikicontributionranking-changes": "改动次数",
+	"scifiwikicontributionranking-username": "用户",
+	"scifiwikicontributionranking-desc": "根据在科幻百科贡献的词条数目进行用户排名并予以呈现"
 }
