@@ -1,0 +1,25 @@
+{
+  "name": "ScifiWikiContributionRanking",
+  "version": "1.0.0",
+  "author": [
+    "scifiwiki-cn"
+  ],
+  "url": "https://github.com/scifiwiki-cn/ScifiWiki-ContributionRanking",
+  "descriptionmsg": "Contribution Raking Extension for Scifi Wiki.",
+  "license-name": "MIT",
+  "AutoloadClasses": {
+    "ScifiWikiContributionRanking": "ScifiWikiContributionRanking_body.php"
+  },
+  "SpecialPages": {
+    "ScifiWikiContributionRanking": "ScifiWikiContributionRanking"
+  },
+  "MessagesDirs": {
+    "ScifiWikiContributionRanking": [
+      "i18n"
+    ]
+  },
+  "ExtensionMessagesFiles": {
+    "ScifiWikiContributionRanking": "i18n/ScifiWikiContributionRanking.i18n.alias.php"
+  },
+  "manifest_version": 1
+}
