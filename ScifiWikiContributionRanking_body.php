@@ -27,7 +27,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
         $sqlWhere = "";
         $nextPrefix = "WHERE";
 
-        $date = time() - ( 60 * 60 * 24 * 7 );
+        $date = time() - ( 60 * 60 * 24 * 30 );
         $dateString = $dbr->timestamp( $date );
         $sqlWhere .= " {$nextPrefix} rev_timestamp > '$dateString'";
         $nextPrefix = "AND";
