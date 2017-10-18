@@ -15,6 +15,8 @@
 class ScifiWikiContributionRanking extends IncludableSpecialPage {
 	public function __construct() {
 		parent::__construct( 'ScifiWikiContributionRanking' );
+
+        $this->valid_date = 60 * 60 * 24 * 30;
 	}
 
 	function getMiniRanking() {
@@ -27,7 +29,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
         $sqlWhere = "";
         $nextPrefix = "WHERE";
 
-        $date = time() - ( 60 * 60 * 24 * 30 );
+        $date = time() - ( $this->valid_date );
         $dateString = $dbr->timestamp( $date );
         $sqlWhere .= " {$nextPrefix} rev_timestamp > '$dateString'";
         $nextPrefix = "AND";
@@ -37,7 +39,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
         $nextPrefix = "AND";
 
         $sqlWhere .= " {$nextPrefix} rev_user NOT IN " .
-            "(SELECT ug_user FROM {$userGroupTable} WHERE ug_group='bot')";
+            "(SELECT ug_user FROM {$userGroupTable} WHERE ug_group IN ('bot', 'sysop'))";
 
         $sqlMostPages = "SELECT rev_user,
 						 COUNT(DISTINCT rev_page) AS page_count,
@@ -96,7 +98,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
         $sqlWhere = "";
         $nextPrefix = "WHERE";
 
-        $date = time() - ( 60 * 60 * 24 * 7 );
+        $date = time() - ( $this->valid_date );
         $dateString = $dbr->timestamp( $date );
         $sqlWhere .= " {$nextPrefix} rev_timestamp > '$dateString'";
         $nextPrefix = "AND";
@@ -106,7 +108,7 @@ class ScifiWikiContributionRanking extends IncludableSpecialPage {
         $nextPrefix = "AND";
 
         $sqlWhere .= " {$nextPrefix} rev_user NOT IN " .
-            "(SELECT ug_user FROM {$userGroupTable} WHERE ug_group='bot')";
+            "(SELECT ug_user FROM {$userGroupTable} WHERE ug_group IN ('bot', 'sysop'))";
 
         $sqlMostPages = "SELECT rev_user,
                      COUNT(DISTINCT rev_page) AS page_count,
